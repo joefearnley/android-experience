@@ -5,9 +5,12 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class FavoriteColorsActivity extends Activity {
 
@@ -25,6 +28,21 @@ public class FavoriteColorsActivity extends Activity {
 
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.favorite_colors_list_item, favoriteColors);
 		listView.setAdapter(arrayAdapter);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_new:
+			Intent intent = new Intent(this, NewColorActivity.class);
+			startActivity(intent);
+			return true;
+		case R.id.action_settings:
+			Toast.makeText(this, "Hello! I'm Settings!", Toast.LENGTH_LONG).show();
+			break;
+		}
+		
+		return false;
 	}
 
 	@Override
