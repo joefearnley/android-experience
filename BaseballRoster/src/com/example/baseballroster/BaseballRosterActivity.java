@@ -15,7 +15,7 @@ public class BaseballRosterActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_baseball_roster);
-	
+
 		ListView listView = (ListView) findViewById(R.id.baseballRosterView);
 		List<String> players = new ArrayList<String>();
 		players.add("Orel Hershiser");
