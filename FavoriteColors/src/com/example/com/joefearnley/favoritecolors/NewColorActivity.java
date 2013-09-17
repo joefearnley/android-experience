@@ -12,7 +12,7 @@ public class NewColorActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_new_colors);
+		setContentView(R.layout.new_color_activity);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class NewColorActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 
