@@ -25,16 +25,13 @@ public class NewColorActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.menu_new:
-			Toast.makeText(this, "Hello! I'm toast!", Toast.LENGTH_LONG).show();
-			break;
-		case R.id.action_settings:
-			Intent intent = new Intent(this, FavoriteColorsActivity.class);
-			startActivity(intent);
-			return true;
+			case R.id.menu_submit:
+				addNewColor();
+				NewColorActivity.this.finish();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-
-		return false;
 	}
 
 	@Override

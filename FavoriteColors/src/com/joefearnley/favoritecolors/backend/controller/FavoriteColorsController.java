@@ -3,18 +3,17 @@ package com.joefearnley.favoritecolors.backend.controller;
 import java.util.ArrayList;
 
 public class FavoriteColorsController {
-
-	private FavoriteColorsController favoriteColorsController;
+	private ArrayList<String> colorList;
 	
 	public FavoriteColorsController() {
-		this.favoriteColorsController = new FavoriteColorsController();
+		colorList = new ArrayList<String>();
 	}
 	
 	public void addColor(String color) {
-		this.favoriteColorsController.addColor(color);
+		colorList.add(color);
 	}
 	
-	public ArrayList<String> findAllColors() {
-		return this.favoriteColorsController.findAllColors();
+	public ArrayList<String> findAll() {
+		return colorList;
 	}
 }

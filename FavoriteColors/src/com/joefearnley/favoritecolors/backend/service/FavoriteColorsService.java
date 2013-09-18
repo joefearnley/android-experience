@@ -2,20 +2,21 @@ package com.joefearnley.favoritecolors.backend.service;
 
 import java.util.ArrayList;
 
+import com.joefearnley.favoritecolors.backend.controller.FavoriteColorsController;
+
 public class FavoriteColorsService {
 
-	private ArrayList<String> colorList;
+	private FavoriteColorsController favoriteColorsController;
 	
 	public FavoriteColorsService() {
-		colorList = new ArrayList<String>();
+		this.favoriteColorsController = new FavoriteColorsController();
 	}
 	
 	public void addColor(String color) {
-		colorList.add(color);
+		this.favoriteColorsController.addColor(color);
 	}
 	
-	public ArrayList<String> findAll() {
-		return colorList;
+	public ArrayList<String> findAllColors() {
+		return this.favoriteColorsController.findAll();
 	}
-
 }
