@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class FavoriteColorsActivity extends Activity {
 
@@ -41,18 +40,15 @@ public class FavoriteColorsActivity extends Activity {
 				Intent intent = new Intent(this, NewColorActivity.class);
 				startActivity(intent);
 				return true;
-			case R.id.action_settings:
-				Toast.makeText(this, "Hello! I'm Settings!", Toast.LENGTH_LONG).show();
-				break;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-		
-		return false;
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_menu, menu);
+		getMenuInflater().inflate(R.menu.favorite_colors_menu, menu);
 		return true;
 	}
 

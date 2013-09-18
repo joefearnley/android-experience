@@ -7,16 +7,20 @@
         android:id="@+id/lblFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Color" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/color_name" />
 
     <EditText
         android:id="@+id/txtFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/lblFirstName"
         android:layout_below="@+id/lblFirstName"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="22dp"
-        android:ems="10" />
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
     
 </RelativeLayout>
