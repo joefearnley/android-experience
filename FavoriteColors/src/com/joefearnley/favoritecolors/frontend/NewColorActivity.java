@@ -21,7 +21,7 @@ public class NewColorActivity extends Activity {
 
 		service = ((FavoriteColorsApplication) getApplication()).getService();
 
-		txtColorName = (EditText) this.findViewById(R.id.txtFirstName);
+		txtColorName = (EditText) this.findViewById(R.id.txtColorName);
 		txtColorName.requestFocus();
 	}
 
@@ -40,7 +40,7 @@ public class NewColorActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.favorite_colors_menu, menu);
+		getMenuInflater().inflate(R.menu.new_color_menu, menu);
 		return true;
 	}
 	
