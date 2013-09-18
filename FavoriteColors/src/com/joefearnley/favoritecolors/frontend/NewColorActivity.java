@@ -1,15 +1,13 @@
 package com.joefearnley.favoritecolors.frontend;
 
-import com.example.com.joefearnley.favoritecolors.R;
+import com.joefearnley.favoritecolors.R;
 import com.joefearnley.favoritecolors.backend.service.FavoriteColorsService;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class NewColorActivity extends Activity {
 	

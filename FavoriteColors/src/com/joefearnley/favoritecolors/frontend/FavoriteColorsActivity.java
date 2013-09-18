@@ -3,7 +3,7 @@ package com.joefearnley.favoritecolors.frontend;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.com.joefearnley.favoritecolors.R;
+import com.joefearnley.favoritecolors.R;
 import com.joefearnley.favoritecolors.backend.service.FavoriteColorsService;
 
 import android.os.Bundle;
