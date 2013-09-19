@@ -23,7 +23,8 @@
         android:layout_alignLeft="@+id/lblFirstName"
         android:layout_below="@+id/lblFirstName"
         android:layout_marginTop="23dp"
-        android:ems="10" >
+        android:ems="10"
+        android:inputType="textPersonName" >
 
         <requestFocus />
     </EditText>

@@ -4,5 +4,6 @@
     <string name="app_name">Baseball Roster</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="add_player">Add New Player</string>
 
 </resources>

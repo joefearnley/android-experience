@@ -5,12 +5,12 @@
         android:orderInCategory="100"
         android:showAsAction="always"
         android:icon="@drawable/ic_action_new"
-        android:title="Add New Player"/>
+        android:title="@string/add_player"/>
     
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="always"
+        android:showAsAction="never"
         android:icon="@drawable/ic_action_edit"
         android:title="@string/action_settings"/>
 
