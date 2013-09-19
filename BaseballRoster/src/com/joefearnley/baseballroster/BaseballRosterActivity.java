@@ -1,7 +1,9 @@
-package com.example.baseballroster;
+package com.joefearnley.baseballroster;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.baseballroster.R;
 
 import android.os.Bundle;
 import android.app.Activity;
