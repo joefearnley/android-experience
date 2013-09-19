@@ -1,9 +1,10 @@
-package com.joefearnley.baseballroster;
+package com.joefearnley.baseballroster.frontend;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.baseballroster.R;
+import com.joefearnley.baseballroster.R;
+import com.joefearnley.baseballroster.backend.service.BaseballRosterService;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,40 +13,36 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class BaseballRosterActivity extends Activity {
 
+	private BaseballRosterService service = null;
+	private ArrayAdapter<String> arrayAdapter;
+	private List<String> players = new ArrayList<String>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.baseball_roster_activity);
 
-		ListView listView = (ListView) findViewById(R.id.baseballRosterView);
-		List<String> players = new ArrayList<String>();
-		players.add("Orel Hershiser");
-		players.add("Kirk Gibson");
-		players.add("John Kruk");
-		players.add("Dwight Gooden");
-		players.add("Greg Maddux");
+		service = ((BaseballRosterApplication) getApplication()).getService();
+		players = service.findAllPlayers();
 
-		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.baseball_roster_list_item, players);
+		ListView listView = (ListView) findViewById(R.id.baseballRosterView);
+		arrayAdapter = new ArrayAdapter<String>(this, R.layout.baseball_roster_list_item, players);
 		listView.setAdapter(arrayAdapter);
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.new_player:
-			Intent intent = new Intent(this, NewPlayerActivity.class);
-			startActivity(intent);
-			return true;
-		case R.id.action_settings:
-			Toast.makeText(this, "Hello! I'm Settings!", Toast.LENGTH_LONG).show();
-			break;
+			case R.id.new_player:
+				Intent intent = new Intent(this, NewPlayerActivity.class);
+				startActivity(intent);
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
 		}
-		
-		return false;
 	}
 
 	@Override
@@ -53,6 +50,14 @@ public class BaseballRosterActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.baseball_roster_menu, menu);
 		return true;
+	}
+	
+	@Override
+	public void onResume() {
+		if(arrayAdapter != null) {
+			arrayAdapter.notifyDataSetChanged();
+		}
+		super.onResume();
 	}
 
 }
