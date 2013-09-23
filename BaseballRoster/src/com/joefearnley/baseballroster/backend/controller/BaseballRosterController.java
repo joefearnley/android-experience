@@ -15,7 +15,7 @@ public class BaseballRosterController {
 
 	private ArrayList<String> playerList;
 	private Player playerModel;
-	private final Handler myHandler = new Handler();
+	private final Handler listHandler = new Handler();
 
 	public BaseballRosterController() {
 		playerList = new ArrayList<String>();
@@ -35,20 +35,17 @@ public class BaseballRosterController {
 		Player.query(Player.class, new StackMobQuery("player"), new StackMobQueryCallback<Player>(){
 		    @Override
 		    public void success(List<Player> result) {
-		    	
 		    	playerList.clear();
-		    	
+
 		    	for (Player player : result) {
 		    		playerList.add(player.getName());
 				}
 
-				myHandler.post(new Runnable() { 
+		    	listHandler.post(new Runnable() { 
 				    public void run() { 
 				    	arrayAdapter.notifyDataSetChanged();
 				    } 
-				}); 
-		    	
-		    	
+				});
 		    }
 
 		    @Override
