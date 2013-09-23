@@ -3,6 +3,8 @@ package com.joefearnley.baseballroster.frontend;
 import android.app.Application;
 
 import com.joefearnley.baseballroster.backend.service.BaseballRosterService;
+import com.joefearnley.baseballroster.config.Config;
+import com.stackmob.android.sdk.common.StackMobAndroid;
 
 public class BaseballRosterApplication extends Application {
 
@@ -18,6 +20,8 @@ public class BaseballRosterApplication extends Application {
 		super.onCreate();
 		application = this;
 		application.initialize();
+
+		StackMobAndroid.init(getApplicationContext(), 0, Config.STACKMOB_PUBLIC_KEY.toString());
 	}
 
 	private void initialize() {

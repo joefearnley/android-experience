@@ -1,8 +1,5 @@
 package com.joefearnley.baseballroster.frontend;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.joefearnley.baseballroster.R;
 import com.joefearnley.baseballroster.backend.service.BaseballRosterService;
 
@@ -16,23 +13,23 @@ import android.widget.ListView;
 
 public class BaseballRosterActivity extends Activity {
 
-	private BaseballRosterService service = null;
+	private BaseballRosterService service;
 	private ArrayAdapter<String> arrayAdapter;
-	private List<String> players = new ArrayList<String>();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.baseball_roster_activity);
 
 		service = ((BaseballRosterApplication) getApplication()).getService();
-		players = service.findAllPlayers();
-
+		
 		ListView listView = (ListView) findViewById(R.id.baseballRosterView);
-		arrayAdapter = new ArrayAdapter<String>(this, R.layout.baseball_roster_list_item, players);
+		arrayAdapter = new ArrayAdapter<String>(this, R.layout.baseball_roster_list_item, service.getPlayerList());
 		listView.setAdapter(arrayAdapter);
+
+		service.updatePlayers(arrayAdapter);
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -55,9 +52,8 @@ public class BaseballRosterActivity extends Activity {
 	@Override
 	public void onResume() {
 		if(arrayAdapter != null) {
-			arrayAdapter.notifyDataSetChanged();
+			service.updatePlayers(arrayAdapter);
 		}
 		super.onResume();
 	}
-
 }

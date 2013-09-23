@@ -11,8 +11,8 @@ import android.widget.EditText;
 
 public class NewPlayerActivity extends Activity {
 
-	EditText txtPlayerName;
-	private BaseballRosterService service = null;
+	private EditText txtPlayerName;
+	private BaseballRosterService service;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
