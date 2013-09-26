@@ -1,5 +1,7 @@
 package com.joefearnley.baseballroster.frontend;
 
+import java.io.InputStream;
+
 import android.app.Application;
 
 import com.joefearnley.baseballroster.backend.service.BaseballRosterService;
@@ -21,6 +23,8 @@ public class BaseballRosterApplication extends Application {
 		application = this;
 		application.initialize();
 
+		 InputStream is = getClass().getResourceAsStream("config.properties");
+		
 		StackMobAndroid.init(getApplicationContext(), 0, Config.STACKMOB_PUBLIC_KEY.toString());
 	}
 
